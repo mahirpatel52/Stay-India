@@ -1,12 +1,13 @@
 <?php
 session_start();
 
-$host = "localhost";
-$dbUser = "root";
-$dbPass = "";
-$dbName = "hotel_booking";
+$host = getenv('mysql.railway.internal');
+$user = getenv('root');
+$pass = getenv('UhRXeyGyYqzOOBosbfsSBrEQSQSLOFqx');
+$db   = getenv('railway');
+$port = getenv('3306');
 
-$conn = mysqli_connect($host, $dbUser, $dbPass, $dbName);
+$conn = new mysqli($host, $user, $pass, $db, $port);
 
 if (!$conn) {
     die("Database connection failed: " . mysqli_connect_error());
